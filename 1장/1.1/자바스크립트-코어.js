@@ -81,6 +81,7 @@ console.log((x==2) && (y==3))    // => true: 두 비교식이 참이다.
 console.log((x>3) || (y<3))      // => false : 두 비교식이 모두 참이 아니다.
 console.log(!(x==y))             // => true : 논리 값을 반전시킨다.
 
+// 함수
 function plus1(x) {	// 함수 이름은 plus1이고 매개변수로 x를 갖는다.
     return x+1;		// 매개변수로 전달받은 값에 1을 더해서 반환한다.
 }					// 함수는 중괄호 {}로 둘러싸여 있다.
@@ -91,3 +92,59 @@ var square = function(x) {	// 여기서 함수는 값이되고, 변수 square에
 };							// 세미콜론을 써서 할당문의 끝을 나타낸다.
 
 square(plus1(y))			// => 16: 하나의 표현식에서 함수 호출을 두 번 사용함.
+
+// 함수도 객체의 프로퍼티로 사용될 수 있다.
+// 이 때 프로퍼티로 할당된 함수를 '메서드'라고 한다.
+// 모든 자바스크립트 객체는 메서드를 갖는다.
+var a = [];     // 빈 배열을 만든다.
+a.push(1,2,3);  // push() 메서드는 배열에 원소를 하나이상 추가한다.
+a.reverse();    // reverse() 메서드는 배열이 가진 원소의 순서를 역순으로 바꾼다.
+
+// "this" 키워드는 메서드가 정의된 객체 자신을 가리킨다.
+// 아래 points.dist 메서드 몸체에서 사용한 this는 point를 가리킨다.
+points.dist = function() {      //  두 점의 거리를 계산하는 메서드를 정의한다.
+    var p1 = this[0];           //  배열의 첫 번째 원소를 가리킨다.
+    var p2 = this[1];           //  배열의 두 번째 원소를 가리킨다.
+    var a = p2.x-p1.x;          //  두 점의 X 좌표 차이 값을 구한다.
+    var b = p2.y-p1.y;          //  두 점의 Y 좌표 차이 값을 구한다.
+    return Math.sqrt(a*a+b*b);  //  피타고라스 정리를 이용한다.
+}
+console.log(points.dist());     // => 1.414235623730951: 하나의 표현식에서 함수 호출을 두 번 했다.
+
+// 다른 언어에서 흔히 볼 수 있는 함수
+function abs(x) {       // 절댓값을 계산하는 함수
+    if(x>=0) {          // x가 0보다 크거나 같다면
+        return x;       // if 절 안의 코드를 실행한다.
+    } else {            // else 절은 if 절에서 사용한 표현식이 false일 경우 실행한다.
+        return -x;      // else 절은 필수는 아니며
+    }                   // 각 if/else 절에 포함한 문장이 하나일 경우 중괄호를 생략할 수 있다.
+}
+
+function factorial(n) { // 팩토리얼을 계산하는 함수
+    var product = 1;    // product 값은 1부터 시작한다.
+    while(n>1) {        // 괄호 안에 표현식이 참이면 while문의 중괄호 {} 안에 있는 문장을 반복 실행한다. 
+        product *= n;   // product = product * n;의 단축표현이다.
+        n--;            // n = n - 1;의 단축표현이다.
+    }                   // 반복문 while의 끝
+    return product;     // product를 반환한다.
+}           
+factorial(4)            // => 24: 1*4*3*2
+
+// 객체를 초기화하기 위해 생성자 함수를 정의한다.
+function Point(x, y) {      // 일반적으로 생성자 이름의 첫 글자는 대문자로 시작한다.
+    this.x = x;             // this 키워드는 새로 생성된 객체를 가리킨다.
+    this.y = y;             // 생성자로 전달된 인자는 객체의 프로퍼티로 저장한다.
+}                           // 값을 반한하지 않아도 된다.
+
+// new 키워드로 객체를 생성할 때 앞에서 정의한 생성자 함수를 사용한다.
+var p = new Point(1, 1);    // 2차원 좌표 (1,1)
+// 생성자 함수 Point의 prototype 객체에 함수를 정의함으로써
+// Point 객체에 메서드를 정의한다.
+Point.prototype.r = function() {
+    return Math.sqrt(       // x^2 + y^2 값의 제곱근을 반환한다.
+        this.x * this.x +   // this는 이 메서드가 호출된 Point 객체를 가리킨다.
+        this.y * this.y
+    );
+}
+// Point 객체 p(뿐만 아니라 모든 Point 객체)는 메서드 r()을 상속받는다.
+console.log(p.r())          // => 1.414...
