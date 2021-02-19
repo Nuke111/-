@@ -5,11 +5,7 @@
 
 > **1장 자바스크립트 소개**
 
-<<<<<<< HEAD
-- [1.1 자바스크립트 코어](https://github.com/Nuke111/JavaScript-The-Definitive-Guide-6th-Edition-Study/tree/main/1. Introduction to JavaScript.md)
-=======
 - 1.1 자바스크립트 코어
->>>>>>> parent of 423d0bb (Update README.md)
 - 1.2 클라이언트 측 자바스크립트
 
 
