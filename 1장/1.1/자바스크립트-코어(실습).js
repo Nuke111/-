@@ -18,3 +18,19 @@ x = true;           //  참을 뜻하는 논리 값
 x = false;          //  거짓을 뜻하는 논리 값
 x = null;           //  ★ 값이 없음을 뜻하는 특별한 값 ★
 x = undefined;      //  null과 유사함. (???)
+
+//  객체는 이름-값 (name-value pair)의 모음이다.
+//  이름은 반드시 문자열이어야 한다.
+//  값 자리에는 아무 자바스크립트 값이 올 수 있다.
+var book = {                //  객체는 중괄호로 열어서 시작한다.
+    topic : "JavaScript",   //  topic 프로퍼티의 값은 "JavaScript"다. 
+    fat : true              //  fat 프로퍼티의 값은 true다.
+}                           //  닫는 중괄호로 객체 선언의 끝낸다.
+
+// 객체의 프로퍼티는 .와 []를 사용해 접근할 수 있다.
+book.topic;             // => "JavaScript"
+book["fat"];            // => true
+//book[fat];            // => 이렇게는 사용할 수 없다. ReferenceError: fat is not defined
+//BOOK["fat"];          // => 대소분자를 구분한다.
+book.author = "NUKE";   // 객체에 값을 할당하여 새 프로퍼티를 생성한다.
+book.contents = {};     // {}는 프로퍼티가 없는 빈 객체다.
