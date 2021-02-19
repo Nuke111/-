@@ -5,7 +5,7 @@
 
 > **1장 자바스크립트 소개**
 
-- 1.1 자바스크립트 코어
+- [1.1 자바스크립트 코어]([JavaScript-The-Definitive-Guide-6th-Edition-Study/자바스크립트 소개.md at main · Nuke111/JavaScript-The-Definitive-Guide-6th-Edition-Study (github.com)](https://github.com/Nuke111/JavaScript-The-Definitive-Guide-6th-Edition-Study/blob/main/1장 자바스크립트 소개/자바스크립트 소개.md))
 - 1.2 클라이언트 측 자바스크립트
 
 
