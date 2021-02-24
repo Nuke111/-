@@ -10,3 +10,7 @@ s.indexOf("l", 3)       // => 3: 세 번째 문자 이후, 문자 l이 등장하
 s.split(", ")           // => ["hello", "world"]: 부분 문자열로 나눈다.
 s.replace("h", "H")     // => "Hello, world" : 문자열에서 h를 H로 바꾼다.
 s.toUpperCase()         // HELLO WORLD
+
+//ECMAScript 5
+s[0]            // => "h"
+s[s.length-1]   // => "d"
