@@ -27,7 +27,7 @@
 - null과 undefined는 프로퍼티나 메서드를 가지지 않는다.
   - 접근하기 위해 . 연산자나 []를 사용하면 TypeError 발생
 
-##### null과 undefined 사용
+#### null과 undefined 사용
 
 - 시스템 수준에서 예기치 않은 상황에 발생한 값은 undefined
 - 일반적인 프로그래밍 수준에서 오류는 null을 사용한다.
